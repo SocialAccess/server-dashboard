@@ -12,10 +12,23 @@
 		"experimentalDecorators": true,
 		"baseUrl": ".",
 		"paths": {
+			"@assets*": ["./assets*", "./assets/*"],
+			"@components*": ["./components*", "./components/*"],
+			"@includes*": ["./includes*", "./includes/*"],
+			"@layouts*": ["./layouts*", "./layouts/*"],
+			"@middleware*": ["./middleware*", "./middleware/*"],
+			"@pages*": ["./pages*", "./pages/*"],
+			"@plugins*": ["./plugins*", "./plugins/*"],
+			"@static*": ["./static*", "./static/*"],
+			"@store*": ["./store*", "./store/*"],
+			"@typings*": ["./typings*", "./typings/*"],
+			"@config*": ["./config*", "./config/*"],
+			"@server*": ["./server*", "./serer/*"],
 			"~/*": ["./*"],
 			"@/*": ["./*"]
 		},
-		"types": ["@nuxt/types", "@nuxtjs/axios", "@types/node"]
+		"types": ["@nuxt/types", "@types/node"],
+		"typeRoots": ["typings"]
 	},
 	"exclude": ["node_modules", ".nuxt", "dist"]
 }

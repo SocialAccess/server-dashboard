@@ -1,0 +1,70 @@
+@import 'sassy';
+@import 'layout';
+@import 'forms';
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+
+	margin: 0px;
+
+	background-color: $color-page-background-var;
+	color: $color-text-var;
+
+	font-family: $font-body-var;
+	font-size: $font-size-var;
+
+	overflow: hidden;
+
+	transition: width 1s, height 1s;
+}
+
+#__nuxt,
+#__layout {
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px;
+	padding: 0.5em 0px;
+
+	color: $color-header-var;
+	font-family: $font-header-var;
+	font-weight: $font-header-weight-var;
+}
+
+p {
+	margin: 0px;
+}
+
+img,
+video {
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+}
+
+.glass {
+	@include glass-it;
+}
+
+.fancy-scrollbar {
+	@include fancy-scrollbar;
+}

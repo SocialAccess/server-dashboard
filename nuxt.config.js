@@ -1,4 +1,9 @@
+import alias from './config/alias'
+import components from './config/components'
+import serverMiddleware from './server/middleware'
+
 export default {
+	alias,
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'server-dashboard-nuxtjs',
@@ -17,7 +22,8 @@ export default {
 	plugins: [],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
-	components: true,
+	components,
+	serverMiddleware,
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [

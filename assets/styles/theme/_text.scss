@@ -1,0 +1,11 @@
+$font-size: medium;
+$font-size-var: var(--font-size, $font-size);
+
+$font-header: 'Montserrat', sans-serif;
+$font-header-var: var(--font-header, $font-header);
+
+$font-header-weight: 600;
+$font-header-weight-var: var(--font-header-weight, $font-header-weight);
+
+$font-body: 'Open Sans', sans-serif;
+$font-body-var: var(--font-body, $font-body);

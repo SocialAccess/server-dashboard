@@ -1,0 +1,26 @@
+@import 'colors';
+@import 'text';
+
+$scrollbar-size: 10px;
+$scrollbar-size-var: var(--scrollbar-size, $scrollbar-size);
+
+$scrollbar-button-size: 100%;
+$scrollbar-button-size-var: var(
+	--scrollbar-button-size,
+	$scrollbar-button-size
+);
+
+$scrollbar-track-background: $color-page-background;
+$scrollbar-track-background-var: var(
+	--scrollbar-track-background,
+	$scrollbar-track-background
+);
+
+$scrollbar-thumb-background: $color-primary;
+$scrollbar-thumb-background-var: var(
+	--scrollbar-thumb-background,
+	$scrollbar-thumb-background
+);
+
+$border-radius-var: 5px;
+$border-radius: var(--border-radius, $border-radius-var);

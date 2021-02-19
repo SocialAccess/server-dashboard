@@ -1,0 +1,59 @@
+$color-primary: #f44336;
+$color-primary-var: var(--color-primary, $color-primary);
+
+$color-primary-darken: #f44336;
+$color-primary-darken-var: var(--color-primary-darken, $color-primary-darken);
+
+$color-primary-text: white;
+$color-primary-text-var: var(--color-primary-text, $color-primary-text);
+
+$color-page-background: rgb(245, 245, 245);
+$color-page-background-var: var(
+	--color-page-background,
+	$color-page-background
+);
+
+$color-text: black;
+$color-text-var: var(--color-text, $color-text);
+
+$color-header: rgb(125, 125, 125);
+$color-header-var: var(--color-header, $color-header);
+
+$color-input-background: white;
+$color-input-background-var: var(
+	--color-input-background,
+	$color-input-background
+);
+
+$color-input-label-text: #212121;
+$color-input-label-text-var: var(
+	--color-input-label-text,
+	$color-input-label-text
+);
+
+$color-input-area-background: #f5f5f5;
+$color-input-area-background-var: var(
+	--color-input-area-background,
+	$color-input-area-background
+);
+
+$color-switch-background: #e5e2e2;
+$color-switch-background-var: var(
+	--color-switch-background,
+	$color-switch-background
+);
+
+$color-switch-bit: white;
+$color-switch-bit-var: var(--color-switch-bit, $color-switch-bit);
+
+$color-switch-active-background: $color-primary;
+$color-switch-active-background-var: var(
+	--color-switch-active-background,
+	$color-switch-active-background
+);
+
+$color-switch-active-bit: white;
+$color-switch-active-bit-var: var(
+	--color-switch-active-bit,
+	$color-switch-active-bit
+);
