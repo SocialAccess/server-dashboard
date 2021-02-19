@@ -3,43 +3,23 @@ import { UserPackage } from '@typings/auth'
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
 export const state = () => ({
-	user: false,
-	token: false,
+	username: false,
 })
 
 export type AuthState = {
-	user: UserPackage
-	token: string
+	username: string
 }
 
 export const getters: GetterTree<AuthState, RootState> = {
 	user(state) {
-		return state.user
-	},
-	token(state) {
-		return state.token
+		return state.username
 	},
 }
 
 export const mutations: MutationTree<AuthState> = {
 	user(state, user) {
-		state.user = user
-	},
-	token(state, token) {
-		state.token = token
+		state.username = user
 	},
 }
 
-export const actions: ActionTree<AuthState, RootState> = {
-	async fetch_user({ commit }, token: string) {
-		try {
-			if (!token) {
-				console.warn('requested to fetch user but no token provided')
-				return false
-			}
-			console.info('fetching user')
-		} catch (error) {
-			console.log(error)
-		}
-	},
-}
+export const actions: ActionTree<AuthState, RootState> = {}

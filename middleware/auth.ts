@@ -3,13 +3,15 @@ import { Middleware } from '@nuxt/types'
 const authMiddleware: Middleware = async ({ req, redirect, route, store }) => {
 	const user = store.getters['auth/user']
 
-	if (!user && !route.fullPath.startsWith('/login')) {
-		if (!req.session.token) {
-			console.log('redirecting to login')
-			redirect('/login')
+	if (!user) {
+		if (req) {
+			if (!req.session.username || !req.session.password) {
+				console.log('redirecting to login')
+				if (!route.fullPath.startsWith('/login')) redirect('/login')
+			} else {
+				store.commit('auth/user', req.session.username)
+			}
 		}
-
-		await store.dispatch('auth/fetch_user', req.session.token)
 	}
 }
 

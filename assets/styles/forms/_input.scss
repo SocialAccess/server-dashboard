@@ -38,7 +38,7 @@ $input-border-radius: $border-radius;
 		width: calc(100% - 1em);
 
 		position: absolute;
-		left: 0.5em;
+		left: 0.65em;
 		top: 50%;
 		z-index: 2;
 
@@ -105,8 +105,8 @@ $input-border-radius: $border-radius;
 
 		.input-label,
 		.input-clear {
-			left: 0.5em;
-			top: 0.25em;
+			left: 0.65em;
+			top: 0.45em;
 			transform: none;
 		}
 

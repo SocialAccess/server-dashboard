@@ -1,5 +1,6 @@
 import alias from './config/alias'
 import components from './config/components'
+import axios from './modules/axios'
 
 import session from './modules/session'
 
@@ -27,6 +28,9 @@ export default {
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components,
 	serverMiddleware,
+	router: {
+		middleware: ['auth'],
+	},
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
@@ -38,14 +42,13 @@ export default {
 	modules: [
 		session,
 		// https://go.nuxtjs.dev/axios
-		'@nuxtjs/axios',
+		axios,
 		// https://go.nuxtjs.dev/pwa
 		'@nuxtjs/pwa',
 		'@modules/io',
 	],
 
-	// Axios module configuration: https://go.nuxtjs.dev/config-axios
-	axios: {},
+	watch: ['server'],
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa
 	pwa: {

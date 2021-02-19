@@ -1,5 +1,6 @@
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { Vue, Component, Getter, Watch } from 'nuxt-property-decorator'
+import si from 'systeminformation'
 
 @Component
 export default class PageRootIndex extends Vue {}
@@ -7,7 +8,7 @@ export default class PageRootIndex extends Vue {}
 
 <template>
 	<page>
-		<h5>Hello!</h5>
+		<server-memory />
 	</page>
 </template>
 

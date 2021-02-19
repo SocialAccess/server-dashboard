@@ -2,12 +2,15 @@ import { Module } from '@nuxt/types'
 import IO from 'socket.io'
 import http from 'http'
 import path from 'path'
+import si from 'systeminformation'
 
 interface Options {
 	a: boolean
 	b: number
 	c: string
 }
+
+type DataCallback = (data: any) => void
 
 function IOServer(server: http.Server, { host, port }: any) {
 	console.info('attaching IO server')
@@ -19,6 +22,17 @@ function IOServer(server: http.Server, { host, port }: any) {
 			origin: appURL,
 			methods: ['*'],
 		},
+	})
+
+	io.on('connection', (socket) => {
+		socket.on('static-data', (cb: DataCallback) => {
+			if (cb && typeof cb === 'function') si.getStaticData(cb)
+		})
+
+		socket.on('dynamic-data', (cb: DataCallback) => {
+			if (cb && typeof cb === 'function')
+				si.getDynamicData(undefined, undefined, cb)
+		})
 	})
 }
 
