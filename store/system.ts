@@ -1,7 +1,7 @@
 import { RootState } from '@store/index'
 import { Socket } from 'socket.io-client'
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
-import si from 'systeminformation'
+import { Systeminformation } from 'systeminformation'
 
 export const state = () => ({
 	time: {
@@ -12,13 +12,25 @@ export const state = () => ({
 	},
 	os: false,
 	mem: false,
+	networkStats: false,
+	cpu: false,
+	cpuCurrentSpeed: false,
+	currentLoad: false,
+	temp: false,
 })
 
 export type SystemState = {
-	time: si.Systeminformation.TimeData
-	os: si.Systeminformation.OsData
-	mem: si.Systeminformation.MemData
 	[key: string]: any
+	time: Systeminformation.TimeData
+	os: Systeminformation.OsData
+	mem: Systeminformation.MemData
+	networkStats: Systeminformation.NetworkStatsData
+	net: Systeminformation.NetworkInterfacesData
+	networkConnections: Systeminformation.NetworkConnectionsData
+	cpu: Systeminformation.CpuData
+	cpuCurrentSpeed: Systeminformation.CpuCurrentSpeedData
+	currentLoad: Systeminformation.CurrentLoadData
+	temp: Systeminformation.CpuTemperatureData
 }
 
 export const getters: GetterTree<SystemState, RootState> = {
@@ -33,6 +45,22 @@ export const getters: GetterTree<SystemState, RootState> = {
 	},
 	memory(state) {
 		return state.mem
+	},
+	network(state) {
+		return {
+			interfaces: state.net,
+			stats: state.networkStats,
+			connections: state.networkConnections,
+		}
+	},
+	cpu(state) {
+		if (!state.cpu) return false
+		return {
+			...state.cpu,
+			currentSpeed: state.cpuCurrentSpeed,
+			load: state.currentLoad,
+			temp: state.temp,
+		}
 	},
 }
 
@@ -77,7 +105,7 @@ export const actions: ActionTree<SystemState, RootState> = {
 
 		const dispatchDynamic = async () => {
 			await dispatch('dynamic', socket)
-			setTimeout(dispatchDynamic, 1000)
+			setTimeout(dispatchDynamic, 100)
 		}
 
 		await dispatchStatic()

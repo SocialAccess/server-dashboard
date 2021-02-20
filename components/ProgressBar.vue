@@ -49,14 +49,21 @@ export default class ProgressBar extends Vue {
 		position: absolute;
 		left: 0px;
 		top: 0px;
+		z-index: 0;
 
 		background-color: $color-primary-var;
 	}
 
 	.percent {
-		margin-right: 1em;
+		padding: 0.25em;
 
+		margin-right: 1em;
+		z-index: 1;
+
+		background-color: lightgray;
 		font-weight: bold;
+
+		border-radius: $border-radius;
 	}
 }
 </style>

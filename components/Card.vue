@@ -22,5 +22,22 @@ export default class Card extends Vue {}
 	padding: 1em;
 
 	background-color: white;
+
+	border-radius: 5px;
+
+	.card-header {
+		width: 100%;
+		margin-bottom: 0.5em;
+
+		&::v-deep {
+			h1,
+			h2,
+			h3,
+			h4,
+			h5 {
+				padding: 0px;
+			}
+		}
+	}
 }
 </style>
