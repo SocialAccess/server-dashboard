@@ -11,7 +11,7 @@ Built with NuxtJS, TypeScript, Socket.io, and more. This server dashboard lets y
   - Download Latest Paper 1.16 Server Jar
   - Start, Stop, and Restart controls
   - Console window
-- Very basic user system
+- Very Basic User System
 
 ## Planned Features
 
