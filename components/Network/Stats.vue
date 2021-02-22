@@ -28,7 +28,7 @@ export default class ServerNetworkStats extends Vue {
 					</span>
 				</div>
 
-				<div class="interface-stats">
+				<div class="interface-stats layout-column columns-2">
 					<network-stat stat="up-down" :iface="stat" />
 
 					<network-stat stat="total-up" :iface="stat" />
@@ -78,13 +78,13 @@ export default class ServerNetworkStats extends Vue {
 		}
 
 		.interface-stats {
-			@include flex(row);
-			flex-wrap: wrap;
+			// @include flex(row);
+			// flex-wrap: wrap;
 			flex: 1;
 
-			.interface-stat {
-				flex: 1;
-			}
+			// .interface-stat {
+			// 	flex: 1;
+			// }
 		}
 	}
 }

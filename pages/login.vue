@@ -49,7 +49,7 @@ export default class PageRootLogin extends Vue {
 	<page class="page-login">
 		<FormComponent v-if="!username" class="form-login" @submit="login">
 			<FormInput name="username" label="Username" />
-			<FormInput name="password" label="Password" />
+			<FormInput name="password" label="Password" type="password" />
 
 			<FormButton class="form-submit">
 				<span>Login</span>

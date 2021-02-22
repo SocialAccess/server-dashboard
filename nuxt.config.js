@@ -6,6 +6,8 @@ import session from './modules/session'
 
 import serverMiddleware from './server/middleware'
 
+process.env.dirname = __dirname
+
 export default {
 	alias,
 	// Global page headers: https://go.nuxtjs.dev/config-head
@@ -18,6 +20,10 @@ export default {
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 	},
+
+	// server: {
+	// 	host: '192.168.1.26',
+	// },
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: ['@assets/styles/app.scss'],
@@ -48,7 +54,7 @@ export default {
 		'@modules/io',
 	],
 
-	watch: ['server'],
+	watch: ['~/server/**'],
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa
 	pwa: {

@@ -87,3 +87,7 @@ sw.*
 *.swp
 
 .sessions
+
+static/data/*
+assets/minecraft-server/*
+!assets/minecraft-server/eula.txt

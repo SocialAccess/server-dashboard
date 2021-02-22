@@ -5,6 +5,6 @@ export default function formatBytes(a, b = 2) {
 	return (
 		parseFloat((a / Math.pow(1024, d)).toFixed(c)) +
 		' ' +
-		['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'][d]
+		['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'][d]
 	)
 }

@@ -13,6 +13,10 @@ export default class PageRootIndex extends Vue {}
 		</div>
 
 		<div class="layout-row">
+			<minecraft-server-download />
+
+			<minecraft-server-controls />
+
 			<server-network />
 		</div>
 	</page>

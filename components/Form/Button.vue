@@ -156,6 +156,7 @@ export default class FormButton extends Vue {
 			ripple.clicked ? 'clicked' : false,
 			disabled ? 'disabled' : false,
 		]"
+		:disabled="disabled"
 		@mousemove="onMouseMove"
 		@mouseleave="onMouseLeave"
 		@click="onClick"

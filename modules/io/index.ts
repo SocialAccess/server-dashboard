@@ -4,6 +4,9 @@ import http from 'http'
 import path from 'path'
 import si from 'systeminformation'
 
+import MinecraftChannel from './channels/minecraft'
+import FilesChannel from './channels/files'
+
 interface Options {
 	a: boolean
 	b: number
@@ -12,17 +15,24 @@ interface Options {
 
 type DataCallback = (data: any) => void
 
+let io: IO.Server
+
 function IOServer(server: http.Server, { host, port }: any) {
 	console.info('attaching IO server')
 
 	const appURL = host + port ? `:${port}` : ''
-	const io = new IO.Server(server, {
+	io = new IO.Server(server, {
 		cors: {
 			// running on different port so cors is needed.
 			origin: appURL,
 			methods: ['*'],
 		},
 	})
+
+	const channels = {
+		minecraft: MinecraftChannel(io),
+		files: FilesChannel(io),
+	}
 
 	io.on('connection', (socket) => {
 		socket.on('static-data', (cb: DataCallback) => {
