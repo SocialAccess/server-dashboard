@@ -8,15 +8,20 @@ import serverMiddleware from './server/middleware'
 
 process.env.dirname = __dirname
 
+const appMeta = {
+	title: 'Server Dashboard',
+	description: '',
+}
+
 export default {
 	alias,
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
-		title: 'server-dashboard-nuxtjs',
+		title: appMeta.title,
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ hid: 'description', name: 'description', content: '' },
+			{ hid: 'description', name: 'description', content: appMeta.description },
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 	},
@@ -58,7 +63,15 @@ export default {
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa
 	pwa: {
+		meta: {
+			name: appMeta.title,
+			description: appMeta.description,
+			theme_color: '#ffffff',
+		},
 		manifest: {
+			name: appMeta.title,
+			short_name: appMeta.title,
+			description: appMeta.description,
 			lang: 'en',
 		},
 	},
