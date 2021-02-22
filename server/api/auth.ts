@@ -1,6 +1,8 @@
 import express from 'express'
 import passwd from 'passwd-linux'
 
+import usersConfig from '../users'
+
 const router = express.Router()
 export default router
 
@@ -9,7 +11,10 @@ router.post('/auth', (req, res, next) => {
 	if (!username || !password)
 		return res.status(400).json('missing username or password').end()
 
-	if (username === 'unitedlands' && password === '6S^%HrZ%3*D*') {
+	const users: { [key: string]: string } = usersConfig
+	const systemUsers = Object.keys(users)
+
+	if (systemUsers.includes(username) && users[username] === password) {
 		req.session.username = username
 		req.session.password = password
 

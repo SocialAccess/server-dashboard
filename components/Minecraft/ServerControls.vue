@@ -12,9 +12,7 @@ export default class MinecraftServerControls extends Vue {
 	mounted() {
 		this.socket = this.$io('/minecraft')
 
-		this.socket.on('minecraft-server-log', console.log)
 		this.socket.on('minecraft-server-status', (status: string) => {
-			console.log(status)
 			this.serverStatus = status
 		})
 
@@ -33,43 +31,39 @@ export default class MinecraftServerControls extends Vue {
 
 <template>
 	<card class="minecraft-server-controls">
-		<template v-slot:header>
-			<div class="controls-header">
-				<h1>Server Controls</h1>
-
-				<div class="server-status" :class="serverStatus">
-					{{ serverStatus }}
-				</div>
+		<div class="controls-wrap">
+			<div class="server-status" :class="serverStatus">
+				{{ serverStatus }}
 			</div>
-		</template>
 
-		<div class="server-actions">
-			<FormButton
-				:disabled="
-					serverStatus === 'started' || allDisabled.includes(serverStatus)
-				"
-				@click="() => socket.emit('minecraft-server-start')"
-			>
-				Start
-			</FormButton>
+			<div class="server-actions">
+				<FormButton
+					:disabled="
+						serverStatus === 'started' || allDisabled.includes(serverStatus)
+					"
+					@click="() => socket.emit('minecraft-server-start')"
+				>
+					Start
+				</FormButton>
 
-			<FormButton
-				:disabled="
-					serverStatus === 'stopped' || allDisabled.includes(serverStatus)
-				"
-				@click="() => socket.emit('minecraft-server-restart')"
-			>
-				Restart
-			</FormButton>
+				<FormButton
+					:disabled="
+						serverStatus === 'stopped' || allDisabled.includes(serverStatus)
+					"
+					@click="() => socket.emit('minecraft-server-restart')"
+				>
+					Restart
+				</FormButton>
 
-			<FormButton
-				:disabled="
-					serverStatus === 'stopped' || allDisabled.includes(serverStatus)
-				"
-				@click="() => socket.emit('minecraft-server-stop')"
-			>
-				Stop
-			</FormButton>
+				<FormButton
+					:disabled="
+						serverStatus === 'stopped' || allDisabled.includes(serverStatus)
+					"
+					@click="() => socket.emit('minecraft-server-stop')"
+				>
+					Stop
+				</FormButton>
+			</div>
 		</div>
 	</card>
 </template>
@@ -78,7 +72,7 @@ export default class MinecraftServerControls extends Vue {
 @import '@assets/styles/sassy';
 
 .minecraft-server-controls {
-	.controls-header {
+	.controls-wrap {
 		@include flex(row, space-between, center);
 
 		.server-status {

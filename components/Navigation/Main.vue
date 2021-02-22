@@ -10,7 +10,7 @@ export default class NavigationMain extends Vue {
 	menu: { [url: string]: string } = {
 		'/': 'Home',
 		'/minecraft': 'Minecraft',
-		'/files': 'Files',
+		// '/files': 'Files',
 	}
 
 	get menuEntries() {

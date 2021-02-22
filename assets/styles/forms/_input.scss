@@ -129,11 +129,11 @@ $input-border-radius: $border-radius;
 	}
 }
 
-.input.flat {
+.form-input.flat {
 	box-shadow: none;
 }
 
-.input.box-it {
+.form-input.box-it {
 	border-radius: 0px;
 
 	.input-area {
@@ -141,14 +141,14 @@ $input-border-radius: $border-radius;
 	}
 }
 
-.input:not(.text):not(.number):not(.password) {
+.form-input:not(.text):not(.number):not(.password) {
 	.input-area,
 	.input-area * {
 		cursor: pointer;
 	}
 }
 
-.input.color {
+.form-input.color {
 	.input-area {
 		height: 40px;
 		padding: 0px;
@@ -180,7 +180,7 @@ $input-border-radius: $border-radius;
 	}
 }
 
-.input.range {
+.form-input.range {
 	.input-area {
 		background-color: $input-color-background;
 

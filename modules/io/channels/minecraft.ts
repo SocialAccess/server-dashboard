@@ -42,6 +42,8 @@ export default function (io: IO.Server) {
 		socket.on('minecraft-server-restart', restartServer)
 		socket.on('minecraft-server-stop', stopServer)
 		socket.on('minecraft-server-status', getServerStatus(socket))
+
+		socket.on('minecraft-server-send-command', sendCommand)
 	})
 }
 
@@ -130,6 +132,7 @@ function startServer() {
 
 		mcServer.on('exit', () => {
 			mcServer = false
+			serverLogs = []
 			channel.emit('minecraft-server-status', 'stopped')
 		})
 	} else {
@@ -174,4 +177,12 @@ function getServerStatus(socket: Socket) {
 		channel.emit('minecraft-server-status', status)
 		if (typeof args[0] === 'function') args[0](status)
 	}
+}
+
+function sendCommand(this: Socket, command: string) {
+	if (!mcServer || !mcServer.pid)
+		return console.info('minecraft server is not started')
+	if (!command.endsWith('\n')) command += '\n'
+
+	mcServer.stdin.write(command)
 }
